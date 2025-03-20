@@ -1,0 +1,9 @@
+@use "./theme";
+.chart-container {
+    margin-top: 20px;
+    background: theme.$card-bg;
+    padding: theme.$padding;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
