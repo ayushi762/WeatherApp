@@ -1,5 +1,5 @@
 import apiClient from "./apiClient";
-import { getWeatherApiUrl } from "./apiConfig";
+import { getHistoricalWeatherApiUrl, getWeatherApiUrl } from "./apiConfig";
 
 export const fetchWeather = async (lat, lon, timestamp) => {
   try {
@@ -10,3 +10,15 @@ export const fetchWeather = async (lat, lon, timestamp) => {
     throw error;
   }
 };
+
+
+export const fetchHistoricalWeather = async (lat, lon, start, end) => {
+  try {
+    const response = await apiClient.get(getHistoricalWeatherApiUrl(lat,lon,start,end));
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching weather history:", error);
+    throw error;
+  }
+};
+

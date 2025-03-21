@@ -1,0 +1,50 @@
+@use "./theme";
+
+.weather-card {
+    background: theme.$card-bg;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 10px theme.$box-shadow;
+  
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .date {
+      font-size: 14px;
+      color: theme.$text-color;
+      margin-bottom: 10px;
+    }
+  
+    .weather-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .weather-icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .weather-description {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  
+    p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  
+    .no-data {
+      font-size: 16px;
+      color: theme.$text-grey;
+    }
+  }
+  

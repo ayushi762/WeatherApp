@@ -9,9 +9,15 @@ const SearchBar = ({ onSelect }) => {
   const handleSearch = async (e) => {
     setQuery(e.target.value);
     if (query.length > 2) {
-      const results = await fetchLocationSuggestions(query);
+      const results = await fetchLocationSuggestions(e.target.value);
       setSuggestions(results);
     }
+  };
+
+  const handleSelect = (loc) => {
+    setQuery(`${loc.name}`); 
+    setSuggestions([]); 
+    onSelect(loc); 
   };
 
   return (
@@ -26,8 +32,8 @@ const SearchBar = ({ onSelect }) => {
       {suggestions.length > 0 && (
         <ul className="suggestions">
           {suggestions.map((loc) => (
-            <li key={loc.lat} onClick={() => onSelect(loc)}>
-              {loc.name}, {loc.country}
+            <li key={loc.lat} onClick={() => handleSelect(loc)}>
+              {loc.name}
             </li>
           ))}
         </ul>
