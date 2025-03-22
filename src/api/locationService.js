@@ -1,5 +1,4 @@
 import apiClient from "./apiClient";
-// import { API_KEY } from ".apiConfig";
 import { getLocationApiUrl } from "./apiConfig";
 
 export const fetchLocationSuggestions = async (query) => {

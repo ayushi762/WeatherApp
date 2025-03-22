@@ -16,6 +16,8 @@ const WeatherDetailCard = (weatherData) => {
       value: new Date(weatherData?.data?.sunset * 1000).toLocaleTimeString(),
     },
     { label: "Weather ☁️", value: weatherData?.data?.weather },
+    { label: "Ground Level 🌆", value: `${weatherData?.data?.groundLevel} m` },
+    { label: "Sea Level 🌊", value: `${weatherData?.data?.seaLevel} m` },
   ];
 
   return (

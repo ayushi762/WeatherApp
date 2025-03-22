@@ -31,7 +31,6 @@ const TodayWeatherCard = (weatherData) => {
       <p>
         <strong>Pressure:</strong> {weatherData.data.pressure} hPa
       </p>
-       <h2>{weatherData.data.location}</h2>
     </div>
   );
 };

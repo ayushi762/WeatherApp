@@ -34,12 +34,6 @@ const Home = () => {
   return (
     <div className="container">
       <SearchBanner />
-      {/* {!location && (
-        <div className="empty-state">
-          <p>🌤️ Enter a location to check weather trends!</p>
-        </div>
-      )}
-      <SearchBar onSelect={setLocation} /> */}
       {!location ? (
         <Features />
       ) : (

@@ -17,9 +17,10 @@ body {
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
-  // max-width: 1600px;
+  max-width: 100%;
+  min-height: 100vh;
+  width: 100vw; 
+  max-width: 1600px;
   background: theme.$card-bg;
   // padding: 20px;
   border-radius: 10px;
@@ -54,34 +55,20 @@ input {
   color: theme.$error;
 }
 
-.empty-state {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: theme.$background-color;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px theme.$box-shadow;
-  font-size: 18px;
-  color: theme.$text-grey;
-
-  img {
-    width: 150px;
-    opacity: 0.7;
-  }
-
-  p {
-    font-size: 18px;
-    color: #555;
-    margin-top: 10px;
-  }
-}
-
 .weather-section {
   display: flex;
-  // justify-content: space-between;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  word-wrap: break-word; //new
+  max-width: 100%;
+  overflow: hidden;
+  // flex-direction: column;
   // align-items: flex-start;
-  align-items: stretch; // Ensures both sections stretch to the same height
+  align-items: stretch; 
   gap: 1rem;
+  min-width: 0;
   margin: 20px;
+  padding: 30px;
 }
 
 .left-section {
@@ -89,12 +76,15 @@ input {
   display: flex;
   flex-direction: column;
   max-width: 37%;
+  align-items: center;
 }
 
 //Chart on right side
 .chart-section {
   flex: 1;
-  max-width: 90%;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -124,19 +114,18 @@ input {
 
 .detail-chart {
   flex: 1;
-  max-width: 90%;
+  // max-width: 90%;
+  width:100%;
   display: flex;
-  // flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  margin-top: 20px;
   background: #fff;
   border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  padding: 15px;
 }
 
 .right {
-  // flex: 1;
-  // display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
@@ -145,6 +134,7 @@ input {
 .weather-details {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
   gap: 15px;
   padding: 15px;
@@ -152,35 +142,42 @@ input {
 
 .weather-item {
   background: theme.$item-bg;
-  padding: 15px;
+  padding: 12px;
   border-radius: 10px;
   text-align: start;
-  min-width: 120px;
-  max-width: 120px;
+  width: calc(20% - 20px);
+  // min-width: 130px;
+  // max-width: 130px;
   height: 90px;
   display: flex;
   margin: 10px;
   flex-direction: column;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  white-space: normal;
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    padding-top: 6px;
+    flex-grow: 1;
+  }
 }
 
-.label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #333;
-}
 
-.value {
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  padding-top: 10px;
-}
 
 .right-section {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0px 2px 5px theme.$box-shadow;
 }
 
 .tabs {
@@ -206,5 +203,55 @@ input {
 .tab-content {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content:flex-start;
+}
+
+@media (max-width: 768px) {
+  .weather-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section, 
+  .right-section {
+    max-width: 100%;
+    width: 100%;
+  }
+  .weather-item {
+    width: calc(25% - 20px); 
+    .label {
+      font-size: 10px; 
+    }
+  
+    .value {
+      font-size: 14px; 
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .weather-item {
+    width: calc(33% - 20px); 
+    .label {
+      font-size: 10px; 
+    }
+  
+    .value {
+      font-size: 14px; 
+    }
+  }
+}
+
+@media (max-width: 480px) {
+    .weather-item {
+      width: 100%; 
+      .label {
+        font-size: 9px; 
+      }
+    
+      .value {
+        font-size: 12px; 
+      }
+  }
+
 }

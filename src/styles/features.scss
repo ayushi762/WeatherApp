@@ -1,10 +1,25 @@
-.features-grid {
+.features-container {
+  text-align: center;
+  padding: 20px;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+
+  .features-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 20px;
+    color: #333;
+  }
+
+  .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 20px;
     padding: 10px;
-    max-width: 900px;
+    max-width: 1600px;
 
     .feature-card {
       background: rgba(255, 255, 255, 0.15);
@@ -13,7 +28,7 @@
       text-align: center;
       backdrop-filter: blur(5px);
       transition: transform 0.3s ease-in-out;
-      
+
       &:hover {
         transform: translateY(-5px);
       }
@@ -33,3 +48,4 @@
       }
     }
   }
+}

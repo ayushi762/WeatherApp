@@ -16,7 +16,7 @@ const WeatherChart = ({ data }) => {
   }));
   return (
     <div className="chart-container">
-      <ResponsiveContainer width="100%" height={400} minWidth={400}>
+      <ResponsiveContainer width="100%" minHeight={200} minWidth={400}>
         <LineChart data={chartData}>
           <XAxis dataKey="date" />
           <YAxis />

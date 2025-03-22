@@ -10,6 +10,8 @@ class WeatherModel {
     this.sunrise = data?.sys?.sunrise;
     this.sunset = data?.sys?.sunset;
     this.weather = data?.weather[0]?.main;
+    this.groundLevel = data?.main?.grnd_level;
+    this.seaLevel = data?.main?.sea_level;
     this.icon = `https://openweathermap.org/img/wn/${data?.weather[0]?.icon}.png`;
   }
 }

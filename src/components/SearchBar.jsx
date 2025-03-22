@@ -5,13 +5,23 @@ import "../styles/searchBar.scss";
 const SearchBar = ({ onSelect }) => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [typingTimeout, setTypingTimeout] = useState(null);
 
   const handleSearch = async (e) => {
-    setQuery(e.target.value);
-    if (query.length > 2) {
-      const results = await fetchLocationSuggestions(e.target.value);
+    const value= e.target.value;
+    setQuery(value);
+      if (typingTimeout) clearTimeout(typingTimeout);
+
+    const timeout = setTimeout(async () => {
+      if (value.trim() === "") {
+        setSuggestions([]); 
+        return;
+      }
+      const results = await fetchLocationSuggestions(value);
       setSuggestions(results);
-    }
+    }, 300);
+
+    setTypingTimeout(timeout);
   };
 
   const handleSelect = (loc) => {
@@ -28,6 +38,7 @@ const SearchBar = ({ onSelect }) => {
         placeholder="Search for a location..."
         value={query}
         onChange={handleSearch}
+        onBlur={() => setTimeout(() => setSuggestions([]), 200)}
       />
       {suggestions.length > 0 && (
         <ul className="suggestions">
