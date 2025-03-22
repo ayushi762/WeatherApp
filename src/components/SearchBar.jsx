@@ -15,9 +15,9 @@ const SearchBar = ({ onSelect }) => {
   };
 
   const handleSelect = (loc) => {
-    setQuery(`${loc.name}`); 
-    setSuggestions([]); 
-    onSelect(loc); 
+    setQuery(`${loc.name}`);
+    setSuggestions([]);
+    onSelect(loc);
   };
 
   return (
