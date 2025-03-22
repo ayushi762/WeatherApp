@@ -38,7 +38,6 @@ const SearchBar = ({ onSelect }) => {
         placeholder="Search for a location..."
         value={query}
         onChange={handleSearch}
-        onBlur={() => setTimeout(() => setSuggestions([]), 200)}
       />
       {suggestions.length > 0 && (
         <ul className="suggestions">
